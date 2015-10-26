@@ -6,7 +6,7 @@ class CityDatatable < AjaxDatatablesRails::Base
       name: { source: "City.name" },
       timezone: { source: "City.timezone" },
       iata: { source: "City.iata" },
-      country_name: { source: "City.country_id", cond: :eq }
+      country_name: { source: "City.country_id", cond: filter_country_id }
     }
   end
 
@@ -25,5 +25,9 @@ class CityDatatable < AjaxDatatablesRails::Base
 
   def get_raw_records
     City.includes(:country)
+  end
+
+  def filter_country_id
+    ->(column) { column.table[column.field].eq(column.search.value.to_i + 1) }
   end
 end
