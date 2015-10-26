@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-md-10">
+    <div class="panel panel-default">
+
+      <div class="panel-heading">Cities</div>
+
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+              <tr class="filters">
+                <th><input/></th>
+                <th><input/></th>
+                <th><input/></th>
+                <th><input/></th>
+                <th>
+                  <%= collection_select(:city, :country_id, Country.all, :id, :name, include_blank: true) %>
+                </th>
+              </tr>
+              <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>IATA</th>
+                <th>Timezone</th>
+                <th>Country</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
