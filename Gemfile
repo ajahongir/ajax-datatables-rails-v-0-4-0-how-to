@@ -18,8 +18,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 
-# gem 'ajax-datatables-rails', branch: 'v-0-4-0'
-gem 'ajax-datatables-rails', path: '/var/www/forks/ajax-datatables-rails', branch: 'v-0-4-0'
+gem 'ajax-datatables-rails', github: 'ajahongir/ajax-datatables-rails', branch: 'filtering-improvements'
 
 gem 'rails_script', '~> 0.6.1'
 gem 'coffee_routes'

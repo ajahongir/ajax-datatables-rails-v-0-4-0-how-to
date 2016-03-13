@@ -4,9 +4,9 @@ class CityDatatable < AjaxDatatablesRails::Base
     @view_columns ||= {
       id: { source: "City.id", cond: :eq },
       name: { source: "City.name" },
-      timezone: { source: "City.timezone" },
+      custom_column: { source: "custom_column", cond: filter_custom_column_condition },
       iata: { source: "City.iata" },
-      country_name: { source: "City.country_id", cond: filter_country_id }
+      country_name: { source: "City.country_id", cond: filter_country_condition },
     }
   end
 
@@ -17,17 +17,21 @@ class CityDatatable < AjaxDatatablesRails::Base
         id: city.id,
         name: city.name,
         iata: city.iata,
-        timezone: city.timezone,
         country_name: city.country.try(:name),
+        custom_column: city[:custom_column]
       }
     end
   end
 
   def get_raw_records
-    City.includes(:country)
+    City.select('cities.*, timezone AS custom_column').includes(:country)
   end
 
-  def filter_country_id
+  def filter_country_condition
     ->(column) { column.table[column.field].eq(column.search.value.to_i + 1) }
+  end
+
+  def filter_custom_column_condition
+    ->(column) { ::Arel::Nodes::SqlLiteral.new(column.field.to_s).matches("#{ column.search.value }%") }
   end
 end

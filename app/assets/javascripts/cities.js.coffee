@@ -11,7 +11,7 @@ class App.Cities extends App.Base
           ,
             data: "iata"
           ,
-            data: "timezone"
+            data: "custom_column"
           ,
             data: "country_name"
         ]
