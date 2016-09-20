@@ -4,7 +4,9 @@ class CitiesController < ApplicationController
   def index
     respond_to do |format|
       format.html
-      format.json { render json: CityDatatable.new(view_context) }
+      format.json do
+        render json: CityDatatable.new(view_context)
+      end
     end
   end
 end

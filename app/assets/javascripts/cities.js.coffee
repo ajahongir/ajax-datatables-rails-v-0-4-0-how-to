@@ -3,7 +3,7 @@ class App.Cities extends App.Base
   index: ->
     $ ->
       $('#dataTable').dataTable
-        ajax: cities_path()
+        ajax: Routes.cities_path()
         columns: [
             data: "id"
           ,

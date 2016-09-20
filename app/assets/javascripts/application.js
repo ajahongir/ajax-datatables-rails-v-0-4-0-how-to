@@ -12,6 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require coffee_routes
+//= require js-routes
 //= require_tree .
 
