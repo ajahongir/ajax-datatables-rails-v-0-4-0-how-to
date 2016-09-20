@@ -2,10 +2,15 @@
 
 Things you may want to cover:
 
-* Ruby 2.2
+* Ruby 2.2 and later
 
-* Rails 4.2.4
+* Rails 4.2 and later
 
 
 
-<tt>rails s</tt>.
+<tt>rails s</tt>
+
+used gems:
+<tt>rails_script</tt>
+<tt>js-routes</tt>
+so you can look to home pages for more details.
